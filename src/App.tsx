@@ -1,18 +1,24 @@
-// import React, { useEffect, useState } from "react";
-import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
-import { AppSidebar } from "./components/AppSidebar";
 import { Outlet } from "react-router-dom";
+import Header from "./components/header";
 
 function App() {
   return (
-    <SidebarProvider>
-      <AppSidebar />
+    <>
+      <Header></Header>
       <main>
-        <SidebarTrigger />
         <Outlet />
       </main>
-    </SidebarProvider>
+    </>
   );
+  // return (
+  //   <SidebarProvider>
+  //     <AppSidebar />
+  //     <main>
+  //       <SidebarTrigger />
+  //       <Outlet />
+  //     </main>
+  //   </SidebarProvider>
+  // );
 }
 
 export default App;

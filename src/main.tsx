@@ -6,6 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./lang/i18n";
 import Dashboard from "./Screens/Dashboard";
 import { Settings } from "./Screens/Settings";
+import { Clients } from "./Screens/Clients/Clients";
+import { Projects } from "./Screens/Projects";
+import { Calculations } from "./Screens/Calculations";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,22 +19,18 @@ const router = createBrowserRouter([
         path: "Dashboard",
         element: <Dashboard />,
       },
-      // {
-      //   path: "Clients",
-      //   element: <Clients />,
-      // },
-      // {
-      //   path: "ProjectsList",
-      //   element: <Projects />,
-      // },
-      // {
-      //   path: "Reports",
-      //   element: <Reports />,
-      // },
-      // {
-      //   path: "Calendar",
-      //   element: <Calendar />,
-      // },
+      {
+        path: "Clients",
+        element: <Clients />,
+      },
+      {
+        path: "Projects",
+        element: <Projects />,
+      },
+      {
+        path: "Calculations",
+        element: <Calculations />,
+      },
       {
         path: "Settings",
         element: <Settings />,
