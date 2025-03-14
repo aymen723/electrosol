@@ -1,23 +1,25 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  BaseEntity,
-  ManyToOne,
-} from "typeorm";
-import { Client } from "./Client";
+// export interface Project {
+//   id: number;
+//   name: string;
+//   clientId: number;
+//   startDate: string; // ISO date string
+//   endDate?: string;
+//   location: string;
+//   budget: number;
+//   status: string; // 'Pending' | 'In Progress' | 'Completed'
+//   note?: string;
+// }
 
-@Entity()
-export class Project extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  id!: number;
-
-  @Column()
-  projectname!: string;
-
-  @Column()
-  projectdate!: string;
-
-  @ManyToOne(() => Client, (client) => client.projects)
-  client: Client;
+export class Project {
+  constructor(
+    public id: number,
+    public name: string,
+    public clientId: number,
+    public startDate: string, // ISO date string
+    public location: string,
+    public budget: number,
+    public status: string, // 'Pending' | 'In Progress' | 'Completed'
+    public endDate?: string,
+    public note?: string
+  ) {}
 }

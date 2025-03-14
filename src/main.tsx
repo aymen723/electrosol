@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import App from "./App.tsx";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-// import ErrorScreen from "./Screens/ErrorScreen";
-import Home from "./Screens/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./lang/i18n";
+import Dashboard from "./Screens/Dashboard";
+import { Settings } from "./Screens/Settings";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,15 +13,34 @@ const router = createBrowserRouter([
     // errorElement: <ErrorScreen />,
     children: [
       {
-        path: "Home",
-        element: <Home />,
+        path: "Dashboard",
+        element: <Dashboard />,
+      },
+      // {
+      //   path: "Clients",
+      //   element: <Clients />,
+      // },
+      // {
+      //   path: "ProjectsList",
+      //   element: <Projects />,
+      // },
+      // {
+      //   path: "Reports",
+      //   element: <Reports />,
+      // },
+      // {
+      //   path: "Calendar",
+      //   element: <Calendar />,
+      // },
+      {
+        path: "Settings",
+        element: <Settings />,
       },
     ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    {/* <App /> */}
     <RouterProvider router={router} />
   </React.StrictMode>
 );

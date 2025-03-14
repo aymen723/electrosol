@@ -3,11 +3,7 @@ import { app, BrowserWindow } from "electron";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import "reflect-metadata";
-import { Client } from "../models/Client";
-import { Project } from "../models/Project";
-import { User } from "../models/User";
 
-import createConnection from "typeorm";
 // import dbConfig from "../Config/type.config.ts";
 // const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -34,32 +30,29 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
 
 let win: BrowserWindow | null;
 
-function createWindow() {
+async function createWindow() {
   win = new BrowserWindow({
     height: 768,
     width: 1280,
+    autoHideMenuBar: false,
     icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
     webPreferences: {
       preload: path.join(__dirname, "preload.mjs"),
     },
   });
+  // try {
+  //   const newClient = await db
+  //     .insert(clients)
+  //     .values({ name: "test" })
+  //     .returning();
+  //   console.log("created client", newClient);
 
-  app.on("ready", async () => {
-    // try {
-    //   const connection = await createConnection({
-    //     type: "sqlite",
-    //     database: "test",
-    //     //   database: path.join(__dirname, 'database', 'app_database.sqlite'), // Store database file in app directory
-    //     synchronize: true, // Automatically syncs entities to the database schema (disable in production for safety)
-    //     logging: false,
-    //     //   entities: [path.join(__dirname, 'entities', '*.js')], // Define path to your entities
-    //     entities: [User, Project, Client],
-    //   });
-    //   console.log("Database connected successfully");
-    // } catch (error) {
-    //   console.error("Database connection failed:", error);
-    // }
-  });
+  //   const allClients = await db.select().from(clients);
+  //   console.log("selected clients", allClients);
+  // } catch (error) {
+  //   console.error("Database error:", error);
+  // }
+  app.on("ready", async () => {});
 
   // if (process.env.NODE_ENV === "development") {
   //   // mainWindow.loadURL("http://localhost:3000"); // Vite dev server URL
