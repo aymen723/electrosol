@@ -9,6 +9,8 @@ import { Settings } from "./Screens/Settings";
 import { Clients } from "./Screens/Clients/Clients";
 import { Projects } from "./Screens/Projects/Projects";
 import { Calculations } from "./Screens/Calculations";
+import { ClientDetails } from "./Screens/Clients/ClientDetails";
+import { ProjectDetails } from "./Screens/Projects/ProjectDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,10 +24,22 @@ const router = createBrowserRouter([
       {
         path: "Clients",
         element: <Clients />,
+        children: [
+          {
+            path: "",
+            element: <ClientDetails />,
+          },
+        ],
       },
       {
         path: "Projects",
         element: <Projects />,
+        children: [
+          {
+            path: "",
+            element: <ProjectDetails />,
+          },
+        ],
       },
       {
         path: "Calculations",
