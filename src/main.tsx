@@ -7,7 +7,7 @@ import "./lang/i18n";
 import Dashboard from "./Screens/Dashboard";
 import { Settings } from "./Screens/Settings";
 import { Clients } from "./Screens/Clients/Clients";
-import { Projects } from "./Screens/Projects";
+import { Projects } from "./Screens/Projects/Projects";
 import { Calculations } from "./Screens/Calculations";
 const router = createBrowserRouter([
   {

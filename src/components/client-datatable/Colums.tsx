@@ -1,6 +1,4 @@
-"use client";
-
-// import { Client } from "@/models/Client";
+import { Client } from "../../models/Client";
 import { ColumnDef } from "@tanstack/react-table";
 
 // This type is used to define the shape of our data.
@@ -12,28 +10,26 @@ export type Payment = {
   email: string;
 };
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Client>[] = [
   {
-    accessorKey: "status",
-    header: "Status",
+    accessorKey: "name",
+    header: "Name",
   },
   {
-    accessorKey: "email",
-    header: "Email",
+    accessorKey: "company",
+    header: "Company",
   },
   {
-    accessorKey: "amount",
-    header: "Amount",
+    accessorKey: "contact",
+    header: "Contact",
+  },
+
+  {
+    accessorKey: "industry",
+    header: "Industry",
+  },
+  {
+    accessorKey: "note",
+    header: "Note",
   },
 ];
-
-// public name: string,
-//   public contactInfo?: string,
-//   public industry?: string,
-//   public company?: string,
-//   public note?: string
-// export const clientcolumns: ColumnDef<Client> = [
-//   {
-//     accessorKey: "",
-//   },
-// ];
