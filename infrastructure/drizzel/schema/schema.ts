@@ -6,9 +6,9 @@ export const clients = sqliteTable("clients", {
   industry: text("industry"),
   company: text("company"),
   note: text("note"),
-  contactId: integer("contact_id", { mode: "number" })
-    .unique()
-    .references(() => contactInfo.id, { onDelete: "set null" }),
+  // contactId: integer("contact_id", { mode: "number" })
+  //   .unique()
+  //   .references(() => contactInfo.id, { onDelete: "set null" }),
   createdAt: integer("created_at", { mode: "timestamp_ms" }).default(
     sql`(CURRENT_TIMESTAMP)`
   ),
@@ -22,9 +22,9 @@ export const projects = sqliteTable("projects", {
   name: text("name", { length: 255 }).notNull(),
   startDate: integer("start_date", { mode: "timestamp" }),
   endDate: integer("end_date", { mode: "timestamp" }),
-  locationId: integer("location_id").references(() => locations.id, {
-    onDelete: "set null",
-  }),
+  // locationId: integer("location_id").references(() => locations.id, {
+  //   onDelete: "set null",
+  // }),
   budget: real("budget"),
   status: text("status", {
     length: 50,
@@ -40,12 +40,18 @@ export const locations = sqliteTable("locations", {
   id: integer({ mode: "number" }).primaryKey({ autoIncrement: true }),
   latitude: real("latitude").notNull(),
   longitude: real("longitude").notNull(),
+  projectId: integer("project_id").references(() => projects.id, {
+    onDelete: "set null",
+  }),
 });
 
 export const contactInfo = sqliteTable("contact_info", {
   id: integer({ mode: "number" }).primaryKey({ autoIncrement: true }),
   phoneNumber: text("phone_number", { length: 50 }),
   email: text("email").unique(),
+  clientId: integer("client_id", { mode: "number" })
+    .unique()
+    .references(() => clients.id, { onDelete: "set null" }),
 });
 
 export const calculationTypes = sqliteTable("calculation_types", {

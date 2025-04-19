@@ -7,8 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "../../components/ui/card";
-// import { columns, Payment } from "../../components/client-datatable/Colums";
-// import { DataTable } from "../../components/client-datatable/Data-table";
+import { columns } from "../../components/client-datatable/Colums";
+import { DataTable } from "../../components/client-datatable/Data-table";
 
 export const Clients = () => {
   return (

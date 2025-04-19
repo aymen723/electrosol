@@ -1,4 +1,4 @@
-import { Project } from "../../models/Project";
+import { Project } from "../../../shared/models/Project";
 import { ColumnDef } from "@tanstack/react-table";
 
 // export const columns: ColumnDef<Payment>[] = [
