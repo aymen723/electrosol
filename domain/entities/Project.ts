@@ -1,15 +1,27 @@
 import { Client } from "./Client";
 
-export class Project {
+// export class Project {
+//   id?: number;
+//   client?: Client;
+//   name?: string;
+//   startdate?: Date;
+//   enddate?: Date;
+//   budget?: string;
+//   status?: Status;
+//   note?: string;
+//   createdAt?: number;
+// }
+
+export interface Project {
   id?: number;
-  client: Client;
+  client?: Client;
   name?: string;
   startdate?: Date;
   enddate?: Date;
   budget?: string;
   status?: Status;
   note?: string;
-  createdAt?: number;
+  createdAt: Date | null;
 }
 
 export enum Status {

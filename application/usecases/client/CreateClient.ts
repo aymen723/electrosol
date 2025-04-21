@@ -1,5 +1,5 @@
-import { Client } from "../../domain/entities/Client";
-import { ClientRepository } from "../../domain/repositories/ClientRepository";
+import { Client } from "../../../domain/entities/Client";
+import { ClientRepository } from "../../../domain/repositories/ClientRepository";
 
 export class CreateClient {
   constructor(private clientRepo: ClientRepository) {}

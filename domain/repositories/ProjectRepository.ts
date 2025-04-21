@@ -5,4 +5,5 @@ export interface ProjectRepository {
   getAll(): Promise<Project[]>;
   delete(project: Project): Promise<Project>;
   update(project: Project): Promise<Project>;
+  getById(id: number): Promise<Project | null>;
 }
