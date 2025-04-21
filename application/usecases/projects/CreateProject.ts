@@ -4,7 +4,7 @@ import { ProjectRepository } from "../../../domain/repositories/ProjectRepositor
 export class CreateProject {
   constructor(private projectRepo: ProjectRepository) {}
 
-  async execute(data: Project): Promise<Project> {
+  async execute(data: Project) {
     // if (!data.name || data.name.length < 2) {
     //   throw new Error(
     //     "Client name is required and must be at least 2 characters."

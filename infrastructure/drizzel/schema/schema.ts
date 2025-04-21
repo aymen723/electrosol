@@ -16,10 +16,11 @@ export const clients = sqliteTable("clients", {
 
 export const projects = sqliteTable("projects", {
   id: integer({ mode: "number" }).primaryKey({ autoIncrement: true }),
+  name: text("name", { length: 255 }).notNull(),
+
   clientId: integer("client_id")
     .notNull()
     .references(() => clients.id, { onDelete: "cascade" }),
-  name: text("name", { length: 255 }).notNull(),
   startDate: integer("start_date", { mode: "timestamp" }),
   endDate: integer("end_date", { mode: "timestamp" }),
   // locationId: integer("location_id").references(() => locations.id, {

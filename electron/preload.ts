@@ -24,3 +24,7 @@ contextBridge.exposeInMainWorld("ipcRenderer", {
   // You can expose other APTs you need here.
   // ...
 });
+
+contextBridge.exposeInMainWorld("api", {
+  createProject: (data: any) => ipcRenderer.invoke("project:create", data),
+});

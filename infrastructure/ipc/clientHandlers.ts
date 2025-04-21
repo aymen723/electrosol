@@ -1,6 +1,6 @@
 import { ipcMain } from "electron";
-import { CreateClient } from "../../application/usecases/CreateClient";
 import { ClientRepositoryImpl } from "../repositoryImpl/ClientRepositoryImpl";
+import { CreateClient } from "../../application/usecases/client/CreateClient";
 
 const repo = new ClientRepositoryImpl();
 const createClient = new CreateClient(repo);
