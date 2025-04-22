@@ -19,10 +19,15 @@ electron.contextBridge.exposeInMainWorld("ipcRenderer", {
   invoke(...args) {
     const [channel, ...omit] = args;
     return electron.ipcRenderer.invoke(channel, ...omit);
+  },
+  test: () => {
+    console.log("here");
   }
   // You can expose other APTs you need here.
   // ...
 });
 electron.contextBridge.exposeInMainWorld("api", {
-  createProject: (data) => electron.ipcRenderer.invoke("project:create", data)
+  createProject: (data) => electron.ipcRenderer.invoke("project:create", data),
+  test: (data) => electron.ipcRenderer.invoke("test", data)
+  // 👈 ensure this is `test`
 });

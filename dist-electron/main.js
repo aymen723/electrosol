@@ -1094,10 +1094,15 @@ async function createWindow() {
     fullscreen: true,
     icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
     webPreferences: {
-      preload: path.join(__dirname, "preload.mjs")
+      // preload: path.join(__dirname, "./preload.ts")
+      // contextIsolation: true,
+      // nodeIntegration: false,
+      // preload: path.join(__dirname, "preload.mjs"),
+      preload: "./preload.ts"
     }
   });
   app.on("ready", async () => {
+    console.log("here");
   });
   win.webContents.on("did-finish-load", () => {
     win == null ? void 0 : win.webContents.send("main-process-message", (/* @__PURE__ */ new Date()).toLocaleString());

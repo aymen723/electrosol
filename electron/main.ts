@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from "electron";
 // import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
+// import {} from "./preload"
 import path from "node:path";
 import "reflect-metadata";
 
@@ -36,9 +37,14 @@ async function createWindow() {
     width: 1920,
     autoHideMenuBar: false,
     fullscreen: true,
+
     icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
     webPreferences: {
-      preload: path.join(__dirname, "preload.mjs"),
+      // preload: path.join(__dirname, "./preload.ts")
+      // contextIsolation: true,
+      // nodeIntegration: false,
+      // preload: path.join(__dirname, "preload.mjs"),
+      preload: "./preload.ts",
     },
   });
   // try {
@@ -53,7 +59,9 @@ async function createWindow() {
   // } catch (error) {
   //   console.error("Database error:", error);
   // }
-  app.on("ready", async () => {});
+  app.on("ready", async () => {
+    console.log("here");
+  });
 
   // if (process.env.NODE_ENV === "development") {
   //   // mainWindow.loadURL("http://localhost:3000"); // Vite dev server URL
